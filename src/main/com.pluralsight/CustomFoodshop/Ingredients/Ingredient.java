@@ -1,4 +1,4 @@
-package CustomFoodshop.Ingredient;
+package CustomFoodshop.Ingredients;
 
 public abstract class Ingredient {
     private int caloriesPerServing;
@@ -16,15 +16,15 @@ public abstract class Ingredient {
         this.isSpicy = isSpicy;
     }
 
-    public int CaloriesPerServing() {return this.caloriesPerServing;}
+    public int getCaloriesPerServing() {return this.caloriesPerServing;}
 
     public void setCaloriesPerServing(int caloriesPerServing) {this.caloriesPerServing = caloriesPerServing;}
 
-    public int Servings() {return this.servings;}
+    public int getServings() {return this.servings;}
 
     public void setServings(int servings) {this.servings = servings;}
 
-    public double PricePerServing() {return this.pricePerServing;}
+    public double getPricePerServing() {return this.pricePerServing;}
 
     public void setPricePerServing(double pricePerServing) {this.pricePerServing = pricePerServing;}
 
