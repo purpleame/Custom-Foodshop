@@ -48,7 +48,7 @@ abstract public class Protein extends Ingredient {
 class Beef extends Protein {
     private String beefCut;
 
-    Beef(int caloriesPerServing, int servings, double pricePerServing, boolean isSeasoned, boolean isSpicy,
+    public Beef(int caloriesPerServing, int servings, double pricePerServing, boolean isSeasoned, boolean isSpicy,
          int proteinPerServing, CookLevel cookLevel, String beefCut) {
 
         super(caloriesPerServing, servings, pricePerServing, isSeasoned, isSpicy, proteinPerServing);
@@ -64,7 +64,7 @@ class Chicken extends Protein {
     private String chickenMeatType;
     private String preparationStyle;
 
-    Chicken(int caloriesPerServing, int servings, double pricePerServing, boolean isSeasoned, boolean isSpicy,
+    public Chicken(int caloriesPerServing, int servings, double pricePerServing, boolean isSeasoned, boolean isSpicy,
             int proteinPerServing, CookLevel cookLevel, String chickenMeatType, String preparationStyle) {
 
         super(caloriesPerServing, servings, pricePerServing, isSeasoned, isSpicy, proteinPerServing);
@@ -82,7 +82,7 @@ class Chicken extends Protein {
 class Bacon extends Protein {
     private String baconType;
 
-    Bacon(int caloriesPerServing, int servings, double pricePerServing, boolean isSeasoned, boolean isSpicy,
+    public Bacon(int caloriesPerServing, int servings, double pricePerServing, boolean isSeasoned, boolean isSpicy,
           int proteinPerServing, CookLevel cookLevel, String baconType) {
 
         super(caloriesPerServing, servings, pricePerServing, isSeasoned, isSpicy, proteinPerServing);

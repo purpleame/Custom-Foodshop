@@ -54,7 +54,7 @@ class Pasta extends Wheat {
     enum PastaType { SPAGHETTI, CAPELLINI, FETTUCCINE, LINGUINE }
     private PastaType pastaType;
 
-    Pasta(int caloriesPerServing, int servings, double pricePerServing, boolean isSeasoned, boolean isSpicy,
+    public Pasta(int caloriesPerServing, int servings, double pricePerServing, boolean isSeasoned, boolean isSpicy,
           boolean isToasted, int fiberPerServing, PastaType pastaType) {
         super(caloriesPerServing, servings, pricePerServing, isSeasoned, isSpicy, isToasted, fiberPerServing);
         this.pastaType = pastaType;
@@ -68,7 +68,7 @@ class Rice extends Wheat {
     enum RiceType { BROWN, YELLOW, WHITE, DIRTY, MEXICAN }
     private RiceType riceType;
 
-    Rice(int caloriesPerServing, int servings, double pricePerServing, boolean isSeasoned, boolean isSpicy,
+    public Rice(int caloriesPerServing, int servings, double pricePerServing, boolean isSeasoned, boolean isSpicy,
          boolean isToasted, int fiberPerServing, RiceType riceType) {
         super(caloriesPerServing, servings, pricePerServing, isSeasoned, isSpicy, isToasted, fiberPerServing);
         this.riceType = riceType;
@@ -82,7 +82,7 @@ class Bread extends Wheat {
     enum BreadType { HERB, CHEESY, WHEAT, WHITE }
     private BreadType breadType;
 
-    Bread(int caloriesPerServing, int servings, double pricePerServing, boolean isSeasoned, boolean isSpicy,
+    public Bread(int caloriesPerServing, int servings, double pricePerServing, boolean isSeasoned, boolean isSpicy,
           boolean isToasted, int fiberPerServing, BreadType breadType) {
         super(caloriesPerServing, servings, pricePerServing, isSeasoned, isSpicy, isToasted, fiberPerServing);
         this.breadType = breadType;

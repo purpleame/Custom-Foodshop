@@ -12,7 +12,7 @@ abstract public class Condiment extends Ingredient {
     private double maxFreeServings;
     private boolean isOnSide;
 
-    protected Condiment(int caloriesPerServing, int servings, double pricePerServing,
+    Condiment(int caloriesPerServing, int servings, double pricePerServing,
                         boolean isSeasoned, boolean isSpicy, double maxFreeServings, boolean isOnSide) {
         super(caloriesPerServing, servings, pricePerServing, isSeasoned, isSpicy);
         this.maxFreeServings = maxFreeServings;
@@ -68,7 +68,7 @@ abstract public class Condiment extends Ingredient {
 class Seasoning extends Condiment {
     private String seasoningType;
 
-    protected Seasoning(int caloriesPerServing, int servings, double pricePerServing, double maxFreeServings,
+    public Seasoning(int caloriesPerServing, int servings, double pricePerServing, double maxFreeServings,
                         boolean isOnSide, CondimentForm condimentForm, ServingStyle servingStyle,
                         String seasoningType) {
 
@@ -88,7 +88,7 @@ class Sauce extends Condiment {
     private String sauceType;
     private boolean isExtraSauce;
 
-    protected Sauce(int caloriesPerServing, int servings, double pricePerServing, double maxFreeServings,
+    public Sauce(int caloriesPerServing, int servings, double pricePerServing, double maxFreeServings,
                     boolean isOnSide, CondimentForm condimentForm, ServingStyle servingStyle,
                     String sauceType, boolean isExtraSauce) {
 
@@ -110,7 +110,7 @@ class Sauce extends Condiment {
 class Dressing extends Condiment {
     private String dressingType;
 
-    protected Dressing(int caloriesPerServing, int servings, double pricePerServing, double maxFreeServings,
+    public Dressing(int caloriesPerServing, int servings, double pricePerServing, double maxFreeServings,
                        boolean isOnSide, CondimentForm condimentForm, ServingStyle servingStyle,
                        String dressingType) {
 
@@ -129,7 +129,7 @@ class Dressing extends Condiment {
 class Herb extends Condiment {
     private String herbType;
 
-    protected Herb(int caloriesPerServing, int servings, double pricePerServing, double maxFreeServings,
+    public Herb(int caloriesPerServing, int servings, double pricePerServing, double maxFreeServings,
                    boolean isOnSide, CondimentForm condimentForm, ServingStyle servingStyle,
                    String herbType) {
 

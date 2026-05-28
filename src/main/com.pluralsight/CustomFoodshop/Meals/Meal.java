@@ -1,10 +1,11 @@
-package CustomFoodshop.Meal;
+package CustomFoodshop.Meals;
 
 import CustomFoodshop.Ingredients.Ingredient;
 import java.util.List;
 
 public interface Meal {
-    double calculateTotalPrice(double totalPrice);
+    double calculateTotalPrice();
     double calculateTotalCalories();
     List<Ingredient> getIngredientList();
+
 }
