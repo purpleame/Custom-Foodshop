@@ -6,7 +6,6 @@ import CustomFoodshop.Meals.Meal;
 import CustomFoodshop.Meals.SingleItems.*;
 import CustomFoodshop.Ingredients.*;
 import CustomFoodshop.OrderSystem.OrderManager;
-import CustomFoodshop.Orders.Order;
 import CustomFoodshop.Orders.PendingOrder;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -14,6 +13,7 @@ import java.util.Scanner;
 
 import static CustomFoodshop.Ingredients.Condiments.Condiment.createKetchup;
 import static CustomFoodshop.Ingredients.Condiments.Condiment.createRanchCup;
+import static CustomFoodshop.OrderSystem.ReceiptFileManager.saveReceipt;
 import static CustomFoodshop.UserInterface.ItemCreator.*;
 
 public class ShopInterface {
@@ -53,6 +53,7 @@ public class ShopInterface {
                         orderManager.addOrder(customerOrder.getOrderId(), customerOrder);
                         System.out.println("\n Success: Sent " + newlyCreatedFood.getName() + " to " + customerOrder.getOrderId());
                         printOrderDetailsReceipt(customerOrder);
+                        saveReceipt(customerOrder);
                     }
                 }
                 case "2" -> {
@@ -82,6 +83,7 @@ public class ShopInterface {
                         orderManager.addOrder(customerOrder.getOrderId(), customerOrder);
                         System.out.println("\n✓ Success: Sent Bundle Deal [" + bundleMeal.getName() + "] to " + customerOrder.getOrderId());
                         printOrderDetailsReceipt(customerOrder);
+                        saveReceipt(customerOrder);
                     }
                 }
                 case "4" -> {
