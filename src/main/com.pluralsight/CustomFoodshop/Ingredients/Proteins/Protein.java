@@ -19,18 +19,15 @@ abstract public class Protein extends Ingredient {
     public void setProteinPerServing(int proteinPerServing) {this.proteinPerServing = proteinPerServing;}
 
     public static Protein createBurgerPatty(int servings, CookLevel cookLevel) {
-        return new Beef(250, servings, 2.00, true, false, 20,
-                cookLevel, "Ground Beef");
+        return new Beef(250, servings, true, false, 20, cookLevel, Beef.BeefCut.GROUND_BEEF);
     }
 
     public static Protein createGrilledChicken(int servings) {
-        return new Chicken(150, servings, 1.75, true, false, 25,
-                CookLevel.PRE_COOKED, "Breast", "Grilled");
+        return new Chicken(150, servings, true, false, 25, CookLevel.PRE_COOKED, Chicken.ChickenMeatType.WHITE_MEAT, "Grilled");
     }
 
     public static Protein createCrispyBacon(int servings) {
-        return new Bacon(80, servings, 1.20, false, false, 5,
-                CookLevel.PRE_COOKED, "Hickory Smoked");
+        return new Bacon(80, servings, false, false, 5, CookLevel.PRE_COOKED, Bacon.BaconType.HICKORY_BAKED);
     }
 
     @Override
@@ -46,51 +43,71 @@ abstract public class Protein extends Ingredient {
 }
 
 class Beef extends Protein {
-    private String beefCut;
+    public enum BeefCut {
+        GROUND_BEEF(2.25), STEAK_STRIPS(3.50), MEATBALL(2.50), ROAST_BEEF(3.00);
 
-    public Beef(int caloriesPerServing, int servings, double pricePerServing, boolean isSeasoned, boolean isSpicy,
-         int proteinPerServing, CookLevel cookLevel, String beefCut) {
+        private final double basePrice;
+        BeefCut(double basePrice) { this.basePrice = basePrice; }
+        public double getBasePrice() { return this.basePrice; }
+    }
 
-        super(caloriesPerServing, servings, pricePerServing, isSeasoned, isSpicy, proteinPerServing);
+    private BeefCut beefCut;
+
+    public Beef(int caloriesPerServing, int servings, boolean isSeasoned, boolean isSpicy,
+                int proteinPerServing, CookLevel cookLevel, BeefCut beefCut) {
+        super(caloriesPerServing, servings, beefCut.getBasePrice(), isSeasoned, isSpicy, proteinPerServing);
         this.beefCut = beefCut;
         setCookLevel(cookLevel);
     }
 
-    public String getBeefCut() {return this.beefCut;}
-    public void setBeefCut(String beefCut) {this.beefCut = beefCut;}
+    public BeefCut getBeefCut() {return this.beefCut;}
+    public void setBeefCut(BeefCut beefCut) {this.beefCut = beefCut;}
 }
 
 class Chicken extends Protein {
-    private String chickenMeatType;
+    public enum ChickenMeatType {
+        WHITE_MEAT(2.50), DARK_MEAT(2.00);
+
+        private final double basePrice;
+        ChickenMeatType(double basePrice) { this.basePrice = basePrice; }
+        public double getBasePrice() { return this.basePrice; }
+    }
+
+    private ChickenMeatType chickenMeatType;
     private String preparationStyle;
 
-    public Chicken(int caloriesPerServing, int servings, double pricePerServing, boolean isSeasoned, boolean isSpicy,
-            int proteinPerServing, CookLevel cookLevel, String chickenMeatType, String preparationStyle) {
-
-        super(caloriesPerServing, servings, pricePerServing, isSeasoned, isSpicy, proteinPerServing);
+    public Chicken(int caloriesPerServing, int servings, boolean isSeasoned, boolean isSpicy,
+                   int proteinPerServing, CookLevel cookLevel, ChickenMeatType chickenMeatType, String preparationStyle) {
+        super(caloriesPerServing, servings, chickenMeatType.getBasePrice(), isSeasoned, isSpicy, proteinPerServing);
         this.chickenMeatType = chickenMeatType;
         this.preparationStyle = preparationStyle;
         setCookLevel(cookLevel);
     }
 
-    public String getChickenMeatType() {return this.chickenMeatType;}
-    public void setChickenMeatType(String chickenMeatType) {this.chickenMeatType = chickenMeatType;}
+    public ChickenMeatType getChickenMeatType() {return this.chickenMeatType;}
+    public void setChickenMeatType(ChickenMeatType chickenMeatType) {this.chickenMeatType = chickenMeatType;}
     public String getPreparationStyle() {return this.preparationStyle;}
     public void setPreparationStyle(String preparationStyle) {this.preparationStyle = preparationStyle;}
 }
 
 class Bacon extends Protein {
-    private String baconType;
+    public enum BaconType {
+        SMOKED_BACON(1.50), HICKORY_BAKED(1.50), REGULAR_BACON(1.25);
 
-    public Bacon(int caloriesPerServing, int servings, double pricePerServing, boolean isSeasoned, boolean isSpicy,
-          int proteinPerServing, CookLevel cookLevel, String baconType) {
+        private final double basePrice;
+        BaconType(double basePrice) { this.basePrice = basePrice; }
+        public double getBasePrice() { return this.basePrice; }
+    }
 
-        super(caloriesPerServing, servings, pricePerServing, isSeasoned, isSpicy, proteinPerServing);
+    private BaconType baconType;
+
+    public Bacon(int caloriesPerServing, int servings, boolean isSeasoned, boolean isSpicy,
+                 int proteinPerServing, CookLevel cookLevel, BaconType baconType) {
+        super(caloriesPerServing, servings, baconType.getBasePrice(), isSeasoned, isSpicy, proteinPerServing);
         this.baconType = baconType;
         setCookLevel(cookLevel);
     }
 
-    public String getBaconType() {return this.baconType;}
-    public void setBaconType(String baconType) {this.baconType = baconType;}
+    public BaconType getBaconType() {return this.baconType;}
+    public void setBaconType(BaconType baconType) {this.baconType = baconType;}
 }
-

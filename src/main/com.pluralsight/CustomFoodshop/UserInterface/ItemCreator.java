@@ -1,6 +1,6 @@
 package CustomFoodshop.UserInterface;
 
-import CustomFoodshop.Meals.SingleItems.SingleItem;
+import CustomFoodshop.Meals.SingleItems.*;
 
 import java.util.Scanner;
 
@@ -23,13 +23,13 @@ public class ItemCreator {
 
         switch (choice) {
             case "1":
-                customFood = SingleItem.createClassicBurger();
+                customFood = Burger.createBurger();
                 break;
             case "2":
-                customFood = SingleItem.createPepperoniPizza();
+                customFood = Pizza.createPizza();
                 break;
             case "3":
-                customFood = SingleItem.createChickenAlfredo();
+                customFood = Pasta.createPasta();
                 break;
             default:
                 System.out.println("Invalid selection.");
