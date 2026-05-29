@@ -16,7 +16,7 @@ public class ReceiptFileManager {
     private static final DateTimeFormatter FILE_NAME_FORMATTER = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
 
     public static void saveReceipt(PendingOrder order) {
-        String fileName = order.getTimestamp().format(FILE_NAME_FORMATTER) + ".csv";
+        String fileName = "Unique Foods - " + order.getTimestamp().format(FILE_NAME_FORMATTER) + ".csv";
 
         File directory = new File("receipts");
         if (!directory.exists()) {
@@ -41,7 +41,7 @@ public class ReceiptFileManager {
 
             writer.write("TOTAL||| " + String.format("%.2f", order.calculateSubtotal()) + "\n");
 
-            System.out.println(": Pipe-Delimited Receipt saved to directory: receipts/" + fileName);
+            System.out.println("Receipt saved to directory: receipts/" + fileName);
 
         } catch (IOException e) {
             System.out.println("Error: Failed to save receipt CSV file: " + e.getMessage());

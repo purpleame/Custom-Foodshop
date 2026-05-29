@@ -7,6 +7,7 @@ import CustomFoodshop.Meals.SingleItems.*;
 import CustomFoodshop.Ingredients.*;
 import CustomFoodshop.OrderSystem.OrderManager;
 import CustomFoodshop.Orders.PendingOrder;
+import CustomFoodshop.Ingredients.Toppings;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -30,7 +31,7 @@ public class ShopInterface {
             System.out.println("                                     ");
             System.out.println("1. Create New Custom Food Item");
             System.out.println("2. View Current Active Orders");
-            System.out.println("3. Bundle a New Combo Meal Promotion Package");
+            System.out.println("3. Bundle a New Combo Meal Bundle");
             System.out.println("4. Shut Down Terminal");
             System.out.print("Select an operation: ");
 
@@ -88,7 +89,7 @@ public class ShopInterface {
                 }
                 case "4" -> {
                     running = false;
-                    System.out.println("Terminal shutting down gracefully. Goodbye!");
+                    System.out.println("Terminal shutting down. Goodbye!");
                 }
                 default -> System.out.println("Invalid selection option. Try again.");
             }
@@ -100,7 +101,10 @@ public class ShopInterface {
         System.out.println("1. Design Custom Burger");
         System.out.println("2. Design Custom Pizza");
         System.out.println("3. Design Custom Pasta Plate");
-        System.out.print("Select a base culinary style: ");
+        System.out.println("4. Add Drink");
+        System.out.println("5. Add Fries");
+        System.out.println("6. Add Cheesecake");
+        System.out.print("Select a choice: ");
 
         String choice = scanner.nextLine();
         SingleItem customFood = null;
@@ -109,6 +113,9 @@ public class ShopInterface {
             case "1" -> customFood = createBurger(scanner);
             case "2" -> customFood = createPizza(scanner);
             case "3" -> customFood = createPasta(scanner);
+            case "4" -> customFood = createFountainSoda(scanner);
+            case "5" -> customFood = createFrenchFries(scanner);
+            case "6" -> customFood = createCheesecake(scanner);
             default -> {
                 System.out.println("Invalid selection.");
                 return null;
@@ -124,9 +131,9 @@ public class ShopInterface {
         while (adding) {
             System.out.println("\n--- Add Extra Toppings to: " + singleItem.getName() + " ---");
             System.out.println("1. Add Bacon Slice");
-            System.out.println("2. Add Burger Patty");
-            System.out.println("3. Add Ketchup Packet");
-            System.out.println("4. Add Ranch Cup");
+            System.out.println("2. Add Extra Cheese");
+            System.out.println("3. Add Sausage");
+            System.out.println("4. Add Pepperoni");
             System.out.println("5. Done Adding Toppings");
             System.out.print("Select choice: ");
 
@@ -137,16 +144,19 @@ public class ShopInterface {
                     System.out.println("Bacon added.");
                 }
                 case "2" -> {
-                    singleItem.addIngredient(Protein.createBurgerPatty(1, Protein.CookLevel.MEDIUM));
-                    System.out.println("Extra patty added.");
+                    singleItem.addIngredient(new Toppings(50, 1, 0.50,
+                            false, false));
+                    System.out.println("Extra cheese added.");
                 }
                 case "3" -> {
-                    singleItem.addIngredient(createKetchup(1, false));
-                    System.out.println("Ketchup added.");
+                    singleItem.addIngredient(new Toppings(100, 1, 1,
+                            true, true));
+                    System.out.println("Sausage added.");
                 }
                 case "4" -> {
-                    singleItem.addIngredient(createRanchCup(1));
-                    System.out.println("Ranch added.");
+                    singleItem.addIngredient(new Toppings(80, 1, 2,
+                            true, true));
+                    System.out.println("Pepperoni added.");
                 }
                 case "5" -> adding = false;
                 default -> System.out.println("Invalid selection.");

@@ -15,9 +15,6 @@ public class ItemCreator {
         Burger.BunType bunType;
         boolean isDoublePatty;
 
-        System.out.print("Enter burger name: ");
-        name = scanner.nextLine();
-
         System.out.print("Enter base price: ");
         try {
             totalPrice = Double.parseDouble(scanner.nextLine());
@@ -38,6 +35,8 @@ public class ItemCreator {
             isDoublePatty = false;
         }
 
+        name = bunType.name() + " Burger";
+
         return new Burger(name, totalPrice, ingredients, bunType, isDoublePatty);
     }
 
@@ -47,15 +46,13 @@ public class ItemCreator {
         java.util.List<Ingredient> ingredients;
         Cheesecake.CakeSize size;
 
-        System.out.print("Enter cheesecake name: ");
-        name = scanner.nextLine();
-
         System.out.print("Enter base price: ");
         try {
             totalPrice = Double.parseDouble(scanner.nextLine());
         } catch (NumberFormatException e) {
             totalPrice = 4.50;
         }
+
 
         ingredients = new java.util.ArrayList<>();
 
@@ -67,6 +64,8 @@ public class ItemCreator {
             default -> Cheesecake.CakeSize.MED;
         };
 
+        name = size.name() + " Cheesecake";
+
         return new Cheesecake(name, totalPrice, ingredients, size);
     }
 
@@ -76,9 +75,6 @@ public class ItemCreator {
         java.util.List<Ingredient> ingredients;
         Drink.DrinkSize size;
         boolean hasIce;
-
-        System.out.print("Enter soda flavor name: ");
-        name = scanner.nextLine();
 
         System.out.println("Select Drink Size: 1. SM ($1.99) | 2. MED ($2.49) | 3. LRG ($2.99)");
         String sizeChoice = scanner.nextLine();
@@ -93,6 +89,8 @@ public class ItemCreator {
             case LRG -> 2.99;
             case MED -> 2.49;
         };
+
+        name = size.name() + " Soda";
 
         ingredients = new java.util.ArrayList<>();
 
@@ -112,9 +110,6 @@ public class ItemCreator {
         java.util.List<CustomFoodshop.Ingredients.Ingredient> ingredients;
         Fries.FriesSize size;
 
-        System.out.print("Enter fries name: ");
-        name = scanner.nextLine();
-
         System.out.println("Select Fries Size: 1. SM ($1.75) | 2. MED ($2.25) | 3. LRG ($2.75)");
         String sizeChoice = scanner.nextLine();
         size = switch (sizeChoice) {
@@ -129,6 +124,8 @@ public class ItemCreator {
             case MED -> 2.25;
         };
 
+        name = size.name() + " Fries";
+
         ingredients = new java.util.ArrayList<>();
 
         return new Fries(name, totalPrice, ingredients, size);
@@ -141,9 +138,6 @@ public class ItemCreator {
         Pasta.PastaMealType mealType;
         Pasta.PastaMealSize size;
         boolean hasBreadBowl;
-
-        System.out.print("Enter pasta name: ");
-        name = scanner.nextLine();
 
         System.out.println("Select Pasta Type: 1. CHICKEN_ALFREDO | 2. BACON_CHEESE | 3. REGULAR");
         String typeChoice = scanner.nextLine();
@@ -166,6 +160,8 @@ public class ItemCreator {
             case LRG -> 13.50;
             case MED -> 11.50;
         };
+
+        name = mealType.name() + " Pasta";
 
         ingredients = new java.util.ArrayList<>();
 
@@ -190,8 +186,6 @@ public class ItemCreator {
         Pizza.PizzaSize size;
         boolean hasStuffedCrust;
 
-        System.out.print("Enter pizza name: ");
-        name = scanner.nextLine();
 
         System.out.println("Select Pizza Size: 1. SM ($6.99) | 2. MED ($9.99) | 3. LRG ($13.99)");
         String sizeChoice = scanner.nextLine();
@@ -206,6 +200,8 @@ public class ItemCreator {
             case LRG -> 13.99;
             case MED -> 9.99;
         };
+
+        name = size.name() + " Pizza";
 
         ingredients = new java.util.ArrayList<>();
 
