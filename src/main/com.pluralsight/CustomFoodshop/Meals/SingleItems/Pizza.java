@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Pizza extends SingleItem {
-    enum PizzaSize { SM, MED, LRG };
+    public enum PizzaSize { SM, MED, LRG };
     private PizzaSize size;
     private boolean hasStuffedCrust;
 
-    private Pizza(String name, double totalPrice, List<Ingredient> ingredients,
+    public Pizza(String name, double totalPrice, List<Ingredient> ingredients,
                  PizzaSize size, boolean hasStuffedCrust) {
         super(name, totalPrice, ingredients);
         this.size = size;

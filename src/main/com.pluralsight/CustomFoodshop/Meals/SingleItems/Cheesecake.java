@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cheesecake extends SingleItem {
-    private enum CakeSize { SM, MED, LRG };
+    public enum CakeSize { SM, MED, LRG };
     private CakeSize size;
 
-    Cheesecake(String name, double totalPrice, List<Ingredient> ingredients, CakeSize size) {
+    public Cheesecake(String name, double totalPrice, List<Ingredient> ingredients, CakeSize size) {
         super(name, totalPrice, ingredients);
         this.size = size;
     }
@@ -20,5 +20,4 @@ public class Cheesecake extends SingleItem {
     public static Cheesecake createCheesecake() {
         return new Cheesecake("Cheesecake", 4.50, new ArrayList<>(), Cheesecake.CakeSize.MED);
     }
-
 }

@@ -6,13 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Pasta extends SingleItem {
-    enum PastaMealType { CHICKEN_ALFREDO, BACON_CHEESE, REGULAR };
+    public enum PastaMealType { CHICKEN_ALFREDO, BACON_CHEESE, REGULAR };
     private PastaMealType mealType;
-    enum PastaMealSize { SM, MED, LRG };
+    public enum PastaMealSize { SM, MED, LRG };
     private PastaMealSize size;
     private boolean hasBreadBowl;
 
-    Pasta(String name, double totalPrice, List<Ingredient> ingredients,
+    public Pasta(String name, double totalPrice, List<Ingredient> ingredients,
                  PastaMealType mealType, PastaMealSize size, boolean hasBreadBowl) {
         super(name, totalPrice, ingredients);
         this.mealType = mealType;

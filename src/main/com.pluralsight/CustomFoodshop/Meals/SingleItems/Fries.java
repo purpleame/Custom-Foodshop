@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Fries extends SingleItem {
-    enum FriesSize { SM, MED, LRG };
+    public enum FriesSize { SM, MED, LRG };
     private FriesSize size;
 
-    Fries(String name, double totalPrice, List<Ingredient> ingredients, FriesSize size) {
+    public Fries(String name, double totalPrice, List<Ingredient> ingredients, FriesSize size) {
         super(name, totalPrice, ingredients);
         this.size = size;
     }
