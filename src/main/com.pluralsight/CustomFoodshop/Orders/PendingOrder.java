@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class PendingOrder extends Order {
-    enum OrderStatus { IN_PROGRESS, FINISHED, CANCELLED };
+    public enum OrderStatus { IN_PROGRESS, FINISHED, CANCELLED };
     private OrderStatus orderStatus;
 
     public PendingOrder(String orderId, OrderType orderType, List<Meal> orderedItems,

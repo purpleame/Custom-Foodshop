@@ -3,7 +3,7 @@ package CustomFoodshop.Ingredients.Proteins;
 import CustomFoodshop.Ingredients.Ingredient;
 
 abstract public class Protein extends Ingredient {
-    enum CookLevel { RARE, MEDIUM_RARE, MEDIUM, MEDIUM_WELL, WELL_DONE, PRE_COOKED }
+    public enum CookLevel { RARE, MEDIUM_RARE, MEDIUM, MEDIUM_WELL, WELL_DONE, PRE_COOKED }
     private CookLevel cookLevel;
     private int proteinPerServing;
 

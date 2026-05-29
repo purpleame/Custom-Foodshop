@@ -7,7 +7,7 @@ import java.util.List;
 
 public abstract class Order {
     private String orderId;
-    enum OrderType { SINGLE_ITEM, COMBO };
+    public enum OrderType { SINGLE_ITEM, COMBO };
     private OrderType orderType;
     private List<Meal> orderedItems;
     private LocalDateTime timestamp;

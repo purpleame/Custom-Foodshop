@@ -16,18 +16,23 @@ public class Receipt extends Order {
         this.taxRate = taxRate;
     }
 
-    public double getTaxRate() {return this.taxRate;}
-    public void setTaxRate(double taxRate) {this.taxRate = taxRate;}
+    public double getTaxRate() { return this.taxRate; }
+    public void setTaxRate(double taxRate) { this.taxRate = taxRate; }
 
     public double calculateSubtotal() {
-        for (Meal orderedItems : getOrderedItems()) {
-            subtotal += orderedItems.calculateTotalPrice();
+        double currentSubtotal = 0.0;
+
+        for (Meal meal : getOrderedItems()) {
+            currentSubtotal += meal.calculateTotalPrice();
         }
-        return subtotal;
+
+        this.subtotal = currentSubtotal;
+        return this.subtotal;
     }
 
-    public double calculateGrandTotal(double taxRate) {
-        grandTotal = (taxRate + 1.00) * subtotal;
-        return grandTotal;
+    public double calculateGrandTotal() {
+        calculateSubtotal();
+        this.grandTotal = (this.taxRate + 1.00) * this.subtotal;
+        return this.grandTotal;
     }
 }
