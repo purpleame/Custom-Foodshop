@@ -11,6 +11,7 @@ public abstract class Order {
     private OrderType orderType;
     private List<Meal> orderedItems;
     private LocalDateTime timestamp;
+    double subtotal;
 
     Order(String orderId, OrderType orderType, List<Meal> orderedItems, LocalDateTime timestamp) {
         this.orderId = orderId;
@@ -37,5 +38,16 @@ public abstract class Order {
 
     void removeMeal(Meal meal) {
         orderedItems.remove(meal);
+    }
+
+    public double calculateSubtotal() {
+        double currentSubtotal = 0.0;
+
+        for (Meal meal : getOrderedItems()) {
+            currentSubtotal += meal.calculateTotalPrice();
+        }
+
+        this.subtotal = currentSubtotal;
+        return this.subtotal;
     }
 }
